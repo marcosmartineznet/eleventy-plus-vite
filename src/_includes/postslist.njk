@@ -11,11 +11,8 @@
         </h2>
       </a>
       <time class="postlist-date" datetime="{{ post.date | dateToFormat('yyyy-MM-dd') }}"
-        >{{
-          post.date | dateToFormat('dd
-          LLL yyyy')
-        }}</time
-      >
+        >{{ post.date | dateToFormat('dd LLL yyyy') }}
+      </time>
       {% for tag in post.data.tags | filterTagList %}
         {% set tagUrl %}
           /tags/{{ tag | slug }}/
