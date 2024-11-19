@@ -13,6 +13,7 @@
     "serve": "eleventy --serve",
     "bench": "DEBUG=Eleventy:Benchmark* eleventy",
     "build": "eleventy",
+        "format": "prettier --write \"./**/*.{js,ts,css,md,json,html,xml,njk}\"",
     "clean": "del-cli _site",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +26,21 @@
   "bugs": {
     "url": "https://github.com/matthiasott/11ty22/issues"
   },
+    "prettier": {
+        "printWidth": 100,
+        "proseWrap": "always",
+        "singleQuote": false,
+        "tabWidth": 4,
+        "overrides": [
+            {
+                "files": "*.njk",
+                "options": {
+                    "parser": "html",
+                    "tabWidth": 2
+                }
+            }
+        ]
+    },
   "homepage": "https://github.com/matthiasott/11ty22#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0-beta.1",
@@ -48,6 +64,7 @@
     "markdown-it-anchor": "^9.0.1",
     "npm-run-all": "^4.1.5",
     "postcss-nesting": "^13.0.0",
+    "prettier": "^3.3.3",
     "rollup-plugin-critical": "^1.0.13",
     "sass": "^1.77.8",
     "vite": "^5.4.1"
