@@ -13,20 +13,23 @@ eleventyExcludeFromCollections: true
     <name>{{ meta.title }}</name>
   </author>
   {% if collections.posts %}
-  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+    <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
   {% endif %}
   <id>{{ meta.url }}/</id>
-  {%- for post in collections.posts | reverse -%} {% set absolutePostUrl %}{{ post.url | url |
-  absoluteUrl(meta.url) }}{% endset %}
-  <entry>
-    <title>{{ post.data.title }}</title>
-    <link href="{{ absolutePostUrl }}" />
-    <updated>{{ post.date | dateToRfc3339 }}</updated>
-    <id>{{ absolutePostUrl }}</id>
-    <content type="html"
-      ><![CDATA[ {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}
-      ]]></content
-    >
-  </entry>
+  {%- for post in collections.posts | reverse -%}
+    {% set absolutePostUrl %}{{
+      post.url | url |
+      absoluteUrl(meta.url)
+    }}{% endset %}
+    <entry>
+      <title>{{ post.data.title }}</title>
+      <link href="{{ absolutePostUrl }}" />
+      <updated>{{ post.date | dateToRfc3339 }}</updated>
+      <id>{{ absolutePostUrl }}</id>
+      <content type="html"
+        ><![CDATA[ {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}
+        ]]></content
+      >
+    </entry>
   {%- endfor -%}
 </feed>

@@ -15,8 +15,9 @@
   content="{% if image -%}summary_large_image{% else %}summary{% endif %}"
 />
 {%- if image -%}
-<meta property="og:image" content="{{ image | url | absoluteUrl(meta.url) }}" />
-{%- endif -%} {# Favicon #}
+  <meta property="og:image" content="{{ image | url | absoluteUrl(meta.url) }}" />
+{%- endif -%}
+{# Favicon #}
 <link
   rel="apple-touch-icon"
   sizes="180x180"
