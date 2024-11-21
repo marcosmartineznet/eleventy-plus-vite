@@ -11,6 +11,7 @@
         "start": "eleventy --serve",
         "watch": "eleventy --watch",
         "serve": "eleventy --serve",
+        "preview": "pnpm exec vite preview --outDir _site --port 8081",
         "bench": "DEBUG=Eleventy:Benchmark* eleventy",
         "build": "eleventy",
         "format": "prettier --write \"./**/*.{js,ts,css,md,json,html,xml,njk}\"",
