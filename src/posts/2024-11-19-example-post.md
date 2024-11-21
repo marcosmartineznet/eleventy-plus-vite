@@ -1,5 +1,6 @@
 ---
 title: An example post
+draft: true
 ---
 
 **bold** _italic_ ~~strike through~~ `inline code`

@@ -121,6 +121,12 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/assets/css");
     eleventyConfig.addPassthroughCopy("src/assets/js");
 
+    eleventyConfig.addPreprocessor("drafts", "*", (data, _content) => {
+        if (data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
+            return false;
+        }
+    });
+
     return {
         templateFormats: ["md", "njk", "html", "liquid"],
         htmlTemplateEngine: "njk",
